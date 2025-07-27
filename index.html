@@ -469,6 +469,27 @@
             60% { transform: translateY(-5px); }
         }
 
+        .anti-spam-section {
+            background: rgba(255, 193, 7, 0.15);
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .anti-spam-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .anti-spam-section p {
+            color: #856404;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
         @media (max-width: 768px) {
             .hero-banner h1 {
                 font-size: 2.2rem;
@@ -698,7 +719,28 @@
                     <h2 style="margin-bottom: 20px; font-size: 2.2rem;">💰 Apply for Financial Assistance Now!</h2>
                     <p style="margin-bottom: 30px; font-size: 1.2rem;">Apply in 2 minutes - Subject to review and approval</p>
                     
+                    <!-- Anti-Spam Section -->
+                    <div class="anti-spam-section">
+                        <h3>🚺 Female Applicants Only</h3>
+                        <p>This program is exclusively for women seeking cosmetic surgery procedures.</p>
+                    </div>
+                    
                     <form action="https://formspree.io/f/xldnqvrj" method="POST" onsubmit="handleFormSubmit(event)">
+                        
+                        <!-- Gender Confirmation Field -->
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="color: white;">I confirm that I am a female applicant seeking cosmetic surgery *</label>
+                            <select name="gender_confirmation" class="form-select" required>
+                                <option value="">Please confirm</option>
+                                <option value="female">I am a female seeking cosmetic surgery</option>
+                            </select>
+                        </div>
+
+                        <!-- Honeypot field (hidden from users, bots will fill it) -->
+                        <div style="display: none;">
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="form-grid">
                             <div class="form-group">
                                 <label>First Name *</label>
@@ -727,133 +769,10 @@
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
                                     <option value="AZ">Arizona</option>
-                                    <option value="AR">Arkansas</option>
                                     <option value="CA">California</option>
                                     <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
                                     <option value="FL">Florida</option>
                                     <option value="GA">Georgia</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="NY">New York</option>
-                                    <!-- Add more states -->
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" style="margin-top: 20px;">
-                            <label>What procedure interests you? *</label>
-                            <select name="procedure" class="form-select" required>
-                                <option value="">Select Procedure</option>
-                                <option value="breast-augmentation">Breast Augmentation</option>
-                                <option value="rhinoplasty">Rhinoplasty (Nose Job)</option>
-                                <option value="tummy-tuck">Tummy Tuck</option>
-                                <option value="brazilian-butt-lift">Brazilian Butt Lift</option>
-                                <option value="liposuction">Liposuction</option>
-                                <option value="facelift">Facelift</option>
-                                <option value="eyelid-surgery">Eyelid Surgery</option>
-                                <option value="mommy-makeover">Mommy Makeover</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <!-- Hidden fields for Formspree -->
-                        <input type="hidden" name="_subject" value="New Beauty Fund Assistance Application">
-                        <input type="hidden" name="_next" value="#success">
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <button type="submit" class="submit-button">Apply for Financial Assistance!</button>
-                        
-                        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
-                            Secure application • Subject to review and approval • US residents only<br>
-                            *Consultation with recommended surgeon required • Must be deemed a good candidate for surgery
-                        </p>
-                    </form>
-                </div>
-            </div>
-
-            <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center;">
-                <h3 style="color: #856404;">⚠️ Limited Program Funding Available</h3>
-                <p style="color: #856404;"><strong>We can only approve a limited number of applications each month.</strong> Apply now to be considered for this month's funding cycle. Subject to qualification and approval.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- GHL Chat Widget Integration -->
-    <script>
-        // GoHighLevel chat widget integration
-        (function() {
-            var script = document.createElement('script');
-            script.src = 'https://widgets.leadconnectorhq.com/loader.js';
-            script.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-            script.setAttribute('data-widget-id', '671fe19a481ed12e55947702');
-            document.head.appendChild(script);
-        })();
-    </script>
-    
-    <!-- Custom chat button to trigger GHL chat -->
-    <div class="chat-widget" onclick="triggerGHLChat()">
-        Chat for Financial Assistance!
-    </div>
-
-    <div class="footer-note">
-        <p><strong>TheMedChat - The Smart Way To Find A Plastic Surgeon</strong><br>
-        Our financial assistance program is supported by our network of board-certified surgeons who believe everyone should have access to quality care. Visit <a href="https://themedchat.com" style="color: #4ecdc4;">www.themedchat.com</a> for comprehensive medical information and instant support.<br>
-        <small>*US residents only. Subject to application review and approval. Consultation with recommended surgeon required. Patient must be deemed a good candidate for surgery. Assistance amounts vary based on procedure and individual circumstances. Not all applicants will qualify.</small></p>
-    </div>
-
-    <script>
-        function handleFormSubmit(event) {
-            // Let Formspree handle the actual submission
-            // This function can be used for additional tracking/analytics
-            
-            // Optional: Add Google Analytics or other tracking here
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submit', {
-                    event_category: 'Beauty Fund',
-                    event_label: 'Assistance Application'
-                });
-            }
-            
-            // Show loading state
-            const submitButton = event.target.querySelector('.submit-button');
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '⏳ Submitting...';
-            submitButton.disabled = true;
-            
-            // Formspree will handle the redirect, but we can add a timeout fallback
-            setTimeout(() => {
-                if (!window.location.hash.includes('success')) {
-                    showSuccessMessage();
-                }
-            }, 3000);
-        }
-
-        function showSuccessMessage() {
-            const form = document.querySelector('form');
-            form.innerHTML = `
-                <div style="text-align: center; padding: 40px;">
-                    <h2 style="color: #ffd700; margin-bottom: 20px; font-size: 2rem;">Your Financial Assistance Application is Submitted!</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 30px;">You're one step closer to achieving your goals!</p>
-                    <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px; margin: 20px 0;">
-                        <h3>What happens next:</h3>
-                        <p>Your application will be reviewed within 24 hours<br>
-                        We'll contact you via your preferred method<br>
-                        If approved, we'll match you with qualified surgeons in your area<br>
-                        Consultation with recommended surgeon is required<br>
-                        Assistance awarded to qualified candidates</p>
-                    </div>
-                    <p><strong>Check your email for confirmation!</strong></p>
-                    <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.8;">*Subject to review and approval. US residents only. Consultation required. Must be deemed good candidate.</p>
-                    <button onclick="window.open('https://themedchat.com', '_blank')" style="margin-top: 20px; padding: 15px 30px; background: #ffd700; color: #2c3e50; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">
-                        Visit TheMedChat.com
-                    </button>
-                </div>
-            `;
-        }
-
-        // Check if user came back from Formspree success redirect
-        if (window.location.hash === '#success') {
-            setTimeout(showSuccessMessage, 500);
-        }
-    </script>
-</body>
-</html>
+                                    <option value="HI">Hawaii</option>
