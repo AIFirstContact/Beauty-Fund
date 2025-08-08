@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Received - Beauty Fund</title><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Received - Beauty Fund</title>
     
-    <!-- ADD THE TABOOLA PIXEL HERE, RIGHT AFTER THE TITLE -->
+    <!-- TABOOLA PIXEL -->
     <script type='text/javascript'>
       window._tfa = window._tfa || [];
-      window._tfa.push({notify: 'event',name: 'lead_submit' , id: 1894277});
+      window._tfa.push({notify: 'event', name: 'lead_submit', id: 1894277});
       !function (t, f, a, x) {
              if (!document.getElementById(x)) {
                 t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
@@ -23,50 +18,241 @@
       '//cdn.taboola.com/libtrc/unip/1894277/tfa.js',
       'tb_tfa_script');
     </script>
-    <!-- END OF TABOOLA PIXEL -->
+    
+    <!-- REVCONTENT CONVERSION PIXEL -->
+    <img src="//trends.revcontent.com/conv.php?t=aF0wIdmhlLSlZyBe%2Bh5mmZ35LiQbtM3TcH4EpjRTKkiCE9inWCS8kb5iFxdUceDF" style="display:none;" alt="" />
+    
+    <!-- ADDITIONAL REVCONTENT TRACKING (IF NEEDED) -->
+    <script type="text/javascript">
+    console.log('RevContent conversion pixel fired');
+    </script>
+    
+    <!-- OUTBRAIN PIXEL (ADD WHEN NEEDED) -->
+    <!-- 
+    <script type="text/javascript">
+    !function(_window, _document) {
+        var OB_ADV_ID = 'YOUR_OUTBRAIN_ID_HERE';
+        if (_window.obApi) {
+            var toArray = function(object) {
+                return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
+            };
+            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+            return;
+        }
+        var api = _window.obApi = function() {
+            api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+        };
+        api.version = '1.1';
+        api.loaded = true;
+        api.marketerId = OB_ADV_ID;
+        api.queue = [];
+        var tag = _document.createElement('script');
+        tag.async = true;
+        tag.src = '//amplify.outbrain.com/cp/obtp.js';
+        tag.type = 'text/javascript';
+        var script = _document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(tag, script);
+    }(window, document);
+    obApi('track', 'Lead');
+    </script>
+    -->
+    
+    <!-- GOOGLE ANALYTICS (OPTIONAL) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('event', 'conversion', {
+          'send_to': 'GA_MEASUREMENT_ID/CONVERSION_LABEL'
+      });
+    </script>
+    -->
     
     <style>
-        body { font-family: Georgia, serif; background: linear-gradient(135deg, #4ecdc4, #44b3a9); color: white; text-align: center; padding: 50px 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .checkmark { font-size: 4rem; color: #ffd700; margin-bottom: 20px; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #4ecdc4, #44b3a9);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.15);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .checkmark {
+            font-size: 5rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 1s ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .next-steps {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #ffd700;
+        }
+        
+        .next-steps h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        
+        .step {
+            margin: 15px 0;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .step::before {
+            content: "✓ ";
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .important-note {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .important-note h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c3e50;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .checkmark {
+                font-size: 4rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 15px 0;
+                padding: 15px 30px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- rest of your success page stays the same -->
     <div class="container">
         <div class="checkmark">✅</div>
         <h1>Application Received!</h1>
-        <p>Thank you for submitting your Beauty Fund application.</p>
-        <p><strong>What happens next:</strong></p>
-        <p>• We'll review your application within 24-48 hours<br>
-        • You'll receive an email confirmation shortly<br>
-        • We'll provide surgeon recommendations based on our vetting process</p>
-        <p style="margin-top: 30px;">
-            <a href="https://themedchat.com" style="color: #ffd700; text-decoration: underline;">Visit TheMedChat.com</a>
+        <p class="subtitle">Your Beauty Fund financial assistance application has been successfully submitted.</p>
+        
+        <div class="next-steps">
+            <h3>What Happens Next:</h3>
+            <div class="step">Application review within 24-48 hours</div>
+            <div class="step">Email confirmation with next steps</div>
+            <div class="step">Qualified applicants matched with vetted surgeons</div>
+            <div class="step">Assistance applied to approved procedures</div>
+        </div>
+        
+        <div class="important-note">
+            <h4>⚠️ Important Reminder</h4>
+            <p><strong>Check your email (including spam folder)</strong> for our response. We'll contact you using your preferred communication method within 2 business days.</p>
+        </div>
+        
+        <p style="margin: 30px 0; font-size: 1.2rem;">
+            <strong>While you wait, explore our network of qualified surgeons:</strong>
         </p>
+        
+        <a href="https://themedchat.com/directory/" class="cta-button">Browse Surgeon Directory</a>
+        <a href="https://themedchat.com" class="cta-button">Visit TheMedChat.com</a>
+        
+        <div class="contact-info">
+            <p><strong>Questions?</strong> Our financial assistance coordinators are available to help.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                *Subject to review and approval. US residents only. Consultation with recommended surgeon required.
+            </p>
+        </div>
     </div>
-</body>
-</html>
-    <style>
-        body { font-family: Georgia, serif; background: linear-gradient(135deg, #4ecdc4, #44b3a9); color: white; text-align: center; padding: 50px 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .checkmark { font-size: 4rem; color: #ffd700; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="checkmark">✅</div>
-        <h1>Application Received!</h1>
-        <p>Thank you for submitting your Beauty Fund application.</p>
-        <p><strong>What happens next:</strong></p>
-        <p>• We'll review your application within 24-48 hours<br>
-        • You'll receive an email confirmation shortly<br>
-        • We'll provide surgeon recommendations based on our vetting process</p>
-        <p style="margin-top: 30px;">
-            <a href="https://themedchat.com" style="color: #ffd700; text-decoration: underline;">Visit TheMedChat.com</a>
-        </p>
-    </div>
+    
+    <!-- Conversion Tracking Debug (Remove in production) -->
+    <script>
+    console.log('Success page loaded - conversion tracking should fire');
+    console.log('Taboola pixel should have fired for lead_submit event');
+    </script>
 </body>
 </html>
